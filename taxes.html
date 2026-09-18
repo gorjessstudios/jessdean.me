@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jess Dean Taxes — Get On The List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0A0A0A;
+    --white:#FFFFFF;
+    --rose:#C83D5B;
+    --rose-deep:#a12e47;
+    --soft:#F3F3F3;
+    --line:rgba(10,10,10,0.12);
+    --display:'Playfair Display', serif;
+    --body:'Montserrat', sans-serif;
+    --mono:'Space Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body); color:var(--black); background:var(--white); font-weight:400; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:520px; margin:0 auto; padding:0 1.25rem;}
+  @media(min-width:768px){ .wrap{padding:0 3rem;} }
+
+  .eyebrow{
+    font-family:var(--mono); font-size:0.68rem; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--rose);
+  }
+
+  header{padding:4.5rem 0 2rem; text-align:center;}
+  h1{
+    font-family:var(--display); font-weight:800;
+    font-size:clamp(2rem, 8vw, 2.9rem); line-height:1.08; margin:1rem 0 1.2rem;
+  }
+  h1 .accent{color:var(--rose); font-style:italic; font-weight:700;}
+  .sub{font-size:0.92rem; font-weight:300; color:rgba(10,10,10,0.65); max-width:36ch; margin:0 auto; line-height:1.55;}
+
+  .why{padding:1.8rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:1.2rem 0 2rem;}
+  .why-item{display:flex; gap:0.8rem; margin-bottom:1rem; align-items:flex-start;}
+  .why-item:last-child{margin-bottom:0;}
+  .why-num{font-family:var(--mono); font-size:0.65rem; color:var(--rose); margin-top:2px;}
+  .why-text{font-size:0.85rem; font-weight:300; color:rgba(10,10,10,0.7);}
+  .why-text b{font-weight:600; color:var(--black);}
+
+  .form-heading{font-family:var(--display); font-weight:700; font-size:1.35rem; margin:0 0 0.4rem; text-align:center;}
+  .form-sub{font-size:0.82rem; font-weight:300; color:rgba(10,10,10,0.6); text-align:center; margin:0 0 1.8rem;}
+
+  .field-row{margin-bottom:1.1rem;}
+  label.field-label{
+    display:block; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.06em;
+    text-transform:uppercase; color:rgba(10,10,10,0.6); margin-bottom:0.4rem;
+  }
+  input[type="text"], input[type="email"], input[type="tel"]{
+    width:100%; font-family:var(--body); font-size:1rem; padding:0.85rem 0;
+    border:none; border-bottom:1px solid var(--line); background:transparent; color:var(--black);
+  }
+  input:focus-visible{outline:none; border-color:var(--rose);}
+
+  .consent{
+    display:flex; gap:0.6rem; align-items:flex-start; font-size:0.72rem; font-weight:300;
+    color:rgba(10,10,10,0.6); line-height:1.5; margin:1rem 0 1.6rem;
+  }
+  .consent input{margin-top:3px; width:15px; height:15px; accent-color:var(--rose); flex-shrink:0;}
+
+  button.submit-btn{
+    width:100%; background:var(--black); color:var(--white); border:none; padding:1rem;
+    font-family:var(--mono); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase;
+    cursor:pointer; transition:background .3s ease;
+  }
+  button.submit-btn:hover{background:var(--rose);}
+  button.submit-btn:disabled{opacity:0.6; cursor:not-allowed;}
+
+  .error-box{
+    display:none; background:var(--soft); border-left:2px solid var(--rose); color:var(--rose-deep);
+    font-size:0.78rem; padding:0.9rem 1rem; margin-bottom:1.2rem;
+  }
+  .error-box.visible{display:block;}
+
+  .confirm{display:none; text-align:center; padding:3.5rem 0;}
+  .confirm.visible{display:block;}
+  .form-block.hidden{display:none;}
+  .confirm h2{font-family:var(--display); font-weight:700; font-size:1.6rem; margin:0 0 0.7rem;}
+  .confirm p{font-size:0.85rem; font-weight:300; color:rgba(10,10,10,0.65); max-width:34ch; margin:0 auto;}
+
+  footer{
+    text-align:center; padding:2.5rem 0 3rem; font-family:var(--mono); font-size:0.62rem;
+    letter-spacing:0.05em; color:rgba(10,10,10,0.4); border-top:1px solid var(--line); margin-top:2rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Jess Dean · Coming Soon</div>
+    <h1>Get tax ready<br>before <span class="accent">everyone else.</span></h1>
+    <p class="sub">Taxes are the newest lane. We're not open yet, but the list gets first access, first appointments, and first pricing when we are.</p>
+  </header>
+
+  <div class="why">
+    <div class="why-item">
+      <span class="why-num">01</span>
+      <div class="why-text"><b>First in line</b> when booking opens, before it's public.</div>
+    </div>
+    <div class="why-item">
+      <span class="why-num">02</span>
+      <div class="why-text"><b>Early bird pricing</b> for everyone on this list.</div>
+    </div>
+    <div class="why-item">
+      <span class="why-num">03</span>
+      <div class="why-text"><b>No spam.</b> Just updates on when we open and what to bring.</div>
+    </div>
+  </div>
+
+  <div class="form-block" id="form-block">
+    <h2 class="form-heading">Join the waitlist</h2>
+    <p class="form-sub">Takes 15 seconds.</p>
+
+    <div class="error-box" id="error-box">Didn't go through — check your connection and try again.</div>
+
+    <form id="waitlist-form">
+      <!--
+        BREVO SETUP: replace the form action URL and the hidden fields below
+        with the ones Brevo gives you when you create a Signup Form.
+        Steps: Brevo dashboard -> Contacts -> Forms -> Create a form ->
+        Simple form -> add Email + Name fields -> Generate.
+        Brevo shows you the exact <form action="..."> URL and hidden
+        input names (they vary per account) — copy those in here.
+      -->
+      <input type="hidden" name="email_address_check" value="">
+      <input type="hidden" name="locale" value="en">
+
+      <div class="field-row">
+        <label class="field-label" for="w-name">First name</label>
+        <input type="text" id="w-name" name="NAME" autocomplete="given-name" required>
+      </div>
+
+      <div class="field-row">
+        <label class="field-label" for="w-email">Email</label>
+        <input type="email" id="w-email" name="EMAIL" autocomplete="email" required>
+      </div>
+
+      <div class="field-row">
+        <label class="field-label" for="w-phone">Phone (optional, for a text when we open)</label>
+        <input type="tel" id="w-phone" name="SMS" autocomplete="tel">
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" required>
+        <span>I agree to receive emails about Jess Dean's tax services. I can unsubscribe at any time.</span>
+      </label>
+
+      <button type="submit" class="submit-btn" id="submit-btn">Join The List →</button>
+    </form>
+  </div>
+
+  <section class="confirm" id="confirm-section">
+    <h2>You're on the list.</h2>
+    <p>We'll email you the moment tax services open, plus early pricing before anyone else sees it.</p>
+  </section>
+
+  <footer>JESS DEAN &middot; TAXES LAUNCHING SOON</footer>
+
+</div>
+
+<script>
+  // PLACEHOLDER: swap this for the real Brevo form action URL from your
+  // account (Contacts > Forms > your form > "Share" / embed code).
+  // It looks like: https://sibforms.com/serve/MUIFxxxxxxxxxxxxxxxxxxxxxxx
+  var BREVO_FORM_ACTION = 'PLACEHOLDER_BREVO_FORM_ACTION_URL';
+
+  var form = document.getElementById('waitlist-form');
+  var submitBtn = document.getElementById('submit-btn');
+  var errorBox = document.getElementById('error-box');
+  var formBlock = document.getElementById('form-block');
+  var confirmSection = document.getElementById('confirm-section');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorBox.classList.remove('visible');
+
+    if(BREVO_FORM_ACTION.indexOf('PLACEHOLDER') === 0){
+      errorBox.textContent = "Waitlist isn't connected yet — add your Brevo form URL in the code.";
+      errorBox.classList.add('visible');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Joining...';
+
+    var formData = new FormData(form);
+
+    fetch(BREVO_FORM_ACTION, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors' // Brevo's form endpoint doesn't return CORS headers
+    }).then(function(){
+      formBlock.classList.add('hidden');
+      confirmSection.classList.add('visible');
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }).catch(function(){
+      errorBox.textContent = "Didn't go through — check your connection and try again.";
+      errorBox.classList.add('visible');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join The List →';
+    });
+  });
+</script>
+
+</body>
+</html>

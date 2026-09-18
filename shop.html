@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop the Table — So GorJess &amp; J&amp;J</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0A0A0A;
+    --white:#FFFFFF;
+    --rose:#C83D5B;
+    --rose-deep:#a12e47;
+    --soft:#F3F3F3;
+    --line:rgba(10,10,10,0.12);
+    --display:'Playfair Display', serif;
+    --body:'Montserrat', sans-serif;
+    --mono:'Space Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--white);
+    color:var(--black);
+    font-family:var(--body);
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  .wrap{max-width:560px; margin:0 auto; padding:0 1.25rem;}
+  @media(min-width:768px){ .wrap{padding:0 3rem;} }
+
+  .eyebrow{
+    font-family:var(--mono); font-size:0.68rem; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--rose);
+  }
+
+  /* ---------- HEADER ---------- */
+  header{padding:4rem 0 2rem; text-align:center;}
+  h1.mark{
+    font-family:var(--display);
+    font-weight:800;
+    font-style:italic;
+    font-size:clamp(2.2rem, 9vw, 3rem);
+    margin:1rem 0 0.7rem;
+  }
+  .tagline{font-size:0.9rem; font-weight:300; color:rgba(10,10,10,0.65); max-width:32ch; margin:0 auto;}
+  hr.rule{border:none; border-top:1px solid var(--line); margin:2rem 0;}
+
+  /* ---------- SECTION HEADS ---------- */
+  .section-head{margin-bottom:1.3rem;}
+  .section-head h2{font-family:var(--display); font-weight:700; font-size:1.4rem; margin:0 0 0.3rem;}
+  .section-head p{font-size:0.82rem; font-weight:300; color:rgba(10,10,10,0.6); margin:0;}
+
+  /* ---------- WIGS ---------- */
+  .wig-card{
+    display:flex; gap:1rem; padding:1.1rem 0; border-bottom:1px solid var(--line);
+    cursor:pointer; transition:background .2s ease;
+  }
+  .wig-card:hover{background:var(--soft);}
+  .wig-card:last-child{border-bottom:none;}
+  .wig-thumb{width:64px; height:64px; flex-shrink:0; background:var(--soft);}
+  .wig-info{flex:1;}
+  .wig-name{font-family:var(--display); font-weight:700; font-size:1rem; margin-bottom:2px;}
+  .wig-desc{font-size:0.75rem; font-weight:300; color:rgba(10,10,10,0.55); margin-bottom:6px;}
+  .wig-price{font-family:var(--mono); font-size:0.9rem; color:var(--rose);}
+  .wig-stock{font-family:var(--mono); font-size:0.65rem; color:rgba(10,10,10,0.4); margin-left:10px; text-transform:uppercase;}
+
+  /* ---------- MERCH ---------- */
+  .merch-block{
+    border:1px solid var(--line);
+    padding:1.4rem 1.3rem;
+    margin-bottom:1px;
+  }
+  .merch-block h3{font-family:var(--display); font-weight:700; font-size:1.1rem; margin:0 0 0.7rem;}
+  .prints{display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.9rem;}
+  .print-pill{
+    font-family:var(--mono); font-size:0.62rem; letter-spacing:0.03em; text-transform:uppercase;
+    border:1px solid var(--line); color:rgba(10,10,10,0.7); padding:0.35rem 0.65rem;
+  }
+  .merch-price{font-family:var(--mono); font-size:0.85rem; color:var(--rose);}
+  .merch-note{font-size:0.78rem; font-weight:300; color:rgba(10,10,10,0.55); margin-top:2px;}
+
+  /* ---------- PAY ---------- */
+  .pay-section{padding:2.2rem 0; text-align:center;}
+  .pay-card{background:var(--black); color:var(--white); padding:2.2rem 1.6rem;}
+  .pay-card h2{font-family:var(--display); font-weight:700; font-style:italic; font-size:1.4rem; margin:0 0 0.4rem;}
+  .pay-card p{font-size:0.8rem; font-weight:300; color:rgba(255,255,255,0.65); max-width:26ch; margin:0 auto 1.3rem;}
+  .qr-box{background:var(--white); color:var(--black); display:inline-block; padding:1.6rem 1.2rem; margin-bottom:1rem;}
+  .qr-note{font-family:var(--mono); font-size:0.62rem; letter-spacing:0.04em; text-transform:uppercase; color:rgba(10,10,10,0.5); margin-bottom:0.5rem;}
+  .qr-link{font-family:var(--display); font-size:1.2rem; font-weight:700;}
+  .cashtag{font-family:var(--mono); font-size:1rem; color:var(--white);}
+  .pay-methods{display:flex; gap:0.5rem; justify-content:center; margin-top:1.1rem;}
+  .pay-pill{
+    font-family:var(--mono); font-size:0.62rem; letter-spacing:0.03em; text-transform:uppercase;
+    border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.75); padding:0.35rem 0.7rem;
+  }
+
+  /* ---------- RESERVE FORM ---------- */
+  .reserve-section{padding:0.5rem 0 1.5rem;}
+  .reserve-heading{font-family:var(--display); font-weight:700; font-size:1.3rem; margin:0 0 0.4rem;}
+  .reserve-sub{font-size:0.82rem; font-weight:300; color:rgba(10,10,10,0.6); margin:0 0 1.6rem;}
+
+  .field-row{margin-bottom:1.1rem;}
+  label.field-label{
+    display:block; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.06em;
+    text-transform:uppercase; color:rgba(10,10,10,0.6); margin-bottom:0.4rem;
+  }
+  input[type="text"], input[type="tel"], textarea{
+    width:100%; font-family:var(--body); font-size:1rem; padding:0.85rem 0;
+    border:none; border-bottom:1px solid var(--line); background:transparent; color:var(--black);
+    resize:vertical;
+  }
+  textarea{min-height:70px;}
+  input:focus-visible, textarea:focus-visible{outline:none; border-color:var(--rose);}
+
+  fieldset{border:none; padding:0; margin:0 0 1.4rem;}
+  legend{
+    font-family:var(--mono); font-size:0.66rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:rgba(10,10,10,0.6); margin-bottom:0.7rem;
+  }
+  .choice-grid{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .choice{display:flex; align-items:center; gap:0.7rem; padding:0.85rem 1rem; background:var(--white);}
+  .choice input{width:15px; height:15px; accent-color:var(--rose);}
+  .choice-label{font-size:0.85rem;}
+  .choice:has(input:checked){background:var(--soft);}
+
+  button.submit-btn{
+    width:100%; background:var(--black); color:var(--white); border:none; padding:1rem;
+    font-family:var(--mono); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase;
+    cursor:pointer; transition:background .3s ease;
+  }
+  button.submit-btn:hover{background:var(--rose);}
+  button.submit-btn:disabled{opacity:0.6;}
+
+  .error-box{
+    display:none; background:var(--soft); border-left:2px solid var(--rose); color:var(--rose-deep);
+    font-size:0.78rem; padding:0.9rem 1rem; margin-bottom:1.1rem;
+  }
+  .error-box.visible{display:block;}
+
+  .confirm{display:none; text-align:center; padding:3.5rem 0;}
+  .confirm.visible{display:block;}
+  .reserve-section.hidden{display:none;}
+  .confirm h2{font-family:var(--display); font-weight:700; font-size:1.5rem; margin:0 0 0.6rem;}
+  .confirm p{font-size:0.85rem; font-weight:300; color:rgba(10,10,10,0.65); max-width:30ch; margin:0 auto;}
+
+  footer{
+    text-align:center; padding:2.2rem 0 3rem; font-family:var(--mono); font-size:0.6rem;
+    letter-spacing:0.05em; color:rgba(10,10,10,0.4); border-top:1px solid var(--line); margin-top:1.5rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Jess Dean · Vending Table</div>
+    <h1 class="mark">Shop the Table</h1>
+    <p class="tagline">So GorJess wigs, J&amp;J Imprint tees &amp; bonnets. What you see is what's here today.</p>
+  </header>
+
+  <hr class="rule">
+
+  <!-- ===== WIGS ===== -->
+  <section>
+    <div class="section-head">
+      <h2>Ready to Wear</h2>
+      <p>What's actually in stock right now.</p>
+    </div>
+
+    <a class="wig-card" href="https://sogorjess.com/products/brianna" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+      <div class="wig-thumb" aria-hidden="true"></div>
+      <div class="wig-info">
+        <div class="wig-name">"Brianna"</div>
+        <div class="wig-desc">20" Body Wave · 2x6 Closure · Medium</div>
+        <span class="wig-price">$599</span><span class="wig-stock">1 available</span>
+      </div>
+    </a>
+
+    <a class="wig-card" href="https://sogorjess.com/products/michelle-16-doll-wave-med-5x5-closure-rts-copy" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+      <div class="wig-thumb" aria-hidden="true"></div>
+      <div class="wig-info">
+        <div class="wig-name">"Michelle"</div>
+        <div class="wig-desc">16" Doll Wave · 5x5 Closure · Medium</div>
+        <span class="wig-price">$499</span><span class="wig-stock">1 available</span>
+      </div>
+    </a>
+
+    <a class="wig-card" href="https://sogorjess.com/products/neea" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+      <div class="wig-thumb" aria-hidden="true"></div>
+      <div class="wig-info">
+        <div class="wig-name">"Robin"</div>
+        <div class="wig-desc">16" Body Wave · 2x6 Closure · Medium</div>
+        <span class="wig-price">$499</span><span class="wig-stock">1 available</span>
+      </div>
+    </a>
+
+    <a class="wig-card" href="https://sogorjess.com/products/guy" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+      <div class="wig-thumb" aria-hidden="true"></div>
+      <div class="wig-info">
+        <div class="wig-name">"Camille"</div>
+        <div class="wig-desc">12" Bob · 5x5 Closure · Medium</div>
+        <span class="wig-price">$325</span><span class="wig-stock">1 available</span>
+      </div>
+    </a>
+
+    <a class="wig-card" href="https://sogorjess.com/products/straight-upart" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+      <div class="wig-thumb" aria-hidden="true"></div>
+      <div class="wig-info">
+        <div class="wig-name">Kayla: Straight U-Part</div>
+        <div class="wig-desc">Straight · Natural Brown 1B · No Lace</div>
+        <span class="wig-price">$305</span><span class="wig-stock">1 available</span>
+      </div>
+    </a>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===== HAIR CARE ===== -->
+  <section>
+    <div class="section-head">
+      <h2>Hair Care Essentials</h2>
+      <p>Slay everything glueless.</p>
+    </div>
+
+    <a class="wig-card" href="https://sogorjess.com/products/jess-melt" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+      <div class="wig-thumb" aria-hidden="true"></div>
+      <div class="wig-info">
+        <div class="wig-name">Slay Foam</div>
+        <div class="wig-desc">Glueless mousse for a lace melt &amp; baby hairs</div>
+        <span class="wig-price">$14.99</span><span class="wig-stock">6 in stock</span>
+      </div>
+    </a>
+
+    <a class="wig-card" href="https://sogorjess.com/products/slay-spray-glueless" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+      <div class="wig-thumb" aria-hidden="true"></div>
+      <div class="wig-info">
+        <div class="wig-name">Slay Spray</div>
+        <div class="wig-desc">Glueless lace spray, protects edges</div>
+        <span class="wig-price">$14.99</span><span class="wig-stock">7 in stock</span>
+      </div>
+    </a>
+
+    <a class="wig-card" href="https://sogorjess.com/products/slay-stick" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+      <div class="wig-thumb" aria-hidden="true"></div>
+      <div class="wig-info">
+        <div class="wig-name">Slay Stick</div>
+        <div class="wig-desc">Tames flyaways, blends natural hair seamlessly</div>
+        <span class="wig-price">$12.99</span><span class="wig-stock">4 in stock</span>
+      </div>
+    </a>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===== MERCH ===== -->
+  <section>
+    <div class="section-head">
+      <h2>J&amp;J Imprint Co.</h2>
+      <p>Tees &amp; bonnets, printed and pressed in-house.</p>
+    </div>
+
+    <div class="merch-block">
+      <h3>Tees</h3>
+      <div class="prints">
+        <span class="print-pill">Gorgeous Gang</span>
+        <span class="print-pill">99 Problems But My Hair Ain't One</span>
+        <span class="print-pill">Football Mom</span>
+        <span class="print-pill">Hair Department</span>
+        <span class="print-pill">Lash Department</span>
+      </div>
+      <div class="merch-price">$15 each &middot; 2 for $20</div>
+    </div>
+
+    <div class="merch-block">
+      <h3>SGJ Bonnets</h3>
+      <p class="merch-note">Black, pressed with the SGJ logo.</p>
+      <div class="merch-price" style="margin-top:0.6rem;">$3 each</div>
+    </div>
+  </section>
+
+  <!-- ===== PAY ===== -->
+  <section class="pay-section">
+    <div class="pay-card">
+      <h2>Tap or scan to pay</h2>
+      <p>Card at the table through Shopify, or scan below to send on CashApp.</p>
+      <div class="qr-box">
+        <div class="qr-note">Scan in the hosted version</div>
+        <div class="qr-link">cash.app/$jesshef1</div>
+      </div>
+      <div class="cashtag">$jesshef1</div>
+      <div class="pay-methods">
+        <span class="pay-pill">Card (Shopify)</span>
+        <span class="pay-pill">CashApp</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===== RESERVE / SOLD OUT NOTE-TAKER ===== -->
+  <section class="reserve-section" id="reserve-section">
+    <h2 class="reserve-heading">Didn't see your size?</h2>
+    <p class="reserve-sub">If we're out of what you want, leave your info and we'll reach out when it's ready.</p>
+
+    <div class="error-box" id="error-box">Didn't go through. Check your connection and try again, your info is still here.</div>
+
+    <form id="reserve-form">
+      <input type="hidden" name="entry_point" value="shop-table">
+      <input type="hidden" name="source" id="source-field" value="direct">
+      <input type="hidden" name="event" id="event-field" value="Vending Event">
+      <input type="hidden" name="_subject" value="New table order/reserve — Jess table">
+
+      <div class="field-row">
+        <label class="field-label" for="r-name">Name</label>
+        <input type="text" id="r-name" name="Name" required>
+      </div>
+
+      <div class="field-row">
+        <label class="field-label" for="r-phone">Phone or CashApp/Instagram to reach you</label>
+        <input type="tel" id="r-phone" name="Contact" required>
+      </div>
+
+      <fieldset>
+        <legend>What are you interested in?</legend>
+        <div class="choice-grid">
+          <label class="choice"><input type="checkbox" name="Interested In" value="Wig - custom order"><span class="choice-label">A wig (custom order)</span></label>
+          <label class="choice"><input type="checkbox" name="Interested In" value="Tee - restock"><span class="choice-label">A tee we sold out of</span></label>
+          <label class="choice"><input type="checkbox" name="Interested In" value="Bonnet - restock"><span class="choice-label">A bonnet</span></label>
+          <label class="choice"><input type="checkbox" name="Interested In" value="Something else"><span class="choice-label">Something else</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field-row">
+        <label class="field-label" for="r-notes">Details (style, print, size, whatever helps)</label>
+        <textarea id="r-notes" name="Notes"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">Send It Over →</button>
+    </form>
+  </section>
+
+  <section class="confirm" id="confirm-section">
+    <h2>Got it.</h2>
+    <p>Thanks for stopping by the table — we'll follow up soon.</p>
+  </section>
+
+  <footer>SO GORJESS HAIR &middot; J&amp;J IMPRINT CO.</footer>
+
+</div>
+
+<script>
+  // Reads ?event= and ?source= from the URL so this one shop page can be
+  // reused across every vending event, and Formspree still shows which
+  // one a lead came from. Falls back to sensible defaults otherwise.
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    document.getElementById('event-field').value = params.get('event') || 'Vending Event';
+    document.getElementById('source-field').value = params.get('source') || 'direct';
+  })();
+
+  var form = document.getElementById('reserve-form');
+  var submitBtn = document.getElementById('submit-btn');
+  var errorBox = document.getElementById('error-box');
+  var reserveSection = document.getElementById('reserve-section');
+  var confirmSection = document.getElementById('confirm-section');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorBox.classList.remove('visible');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    var formData = new FormData(form);
+
+    fetch('https://formspree.io/f/xkjgnpyz', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if(response.ok){
+        reserveSection.classList.add('hidden');
+        confirmSection.classList.add('visible');
+        window.scrollTo({top: confirmSection.offsetTop - 40, behavior: 'smooth'});
+      } else {
+        throw new Error('submission failed');
+      }
+    }).catch(function(){
+      errorBox.classList.add('visible');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send It Over →';
+      errorBox.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  });
+</script>
+
+</body>
+</html>
